@@ -1,0 +1,49 @@
+<%-include("../../partials/header.ejs") %>
+<body>
+  <%-include("../../partials/adminNavbar.ejs") %>
+  <main>
+    <div class="container">
+      <hr>
+      <h2>Usuarios</h2>
+      <hr>
+      <a class="btn btn-primary" href="/login/create">Criar Usuario</a>
+      <hr>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-light"> 
+            <tr>
+              <th>Id</th>
+              <th>Email</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <% users.forEach(user=>{ %> 
+            <tbody>
+              <tr>
+                <td><%= user.id%></td>
+                <td><%= user.email%></td>
+                <td>
+                  <a class="btn btn-warning " href="/admin/user/edit/<%= user.id %>">Editar</a>
+                  <form action="/admin/user/delete/save" method="POST" style="display: inline;" onsubmit="ConfirmarExclusao(event,this)">
+                    <input type="text" value="<%=user.id%>" name="id" hidden>
+                    <button class="btn btn-danger" type="submit">Excluir<button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          <% }) %>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+<%-include("../../partials/footer.ejs") %>
+<script>
+  function ConfirmarExclusao(event,form){
+    event.preventDefault()
+    var resposta=confirm('Deseja mesmo excluir este usuario?')
+    if(resposta){
+      form.submit()
+    }
+  }
+</script>

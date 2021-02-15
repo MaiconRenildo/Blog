@@ -1,0 +1,21 @@
+<%-include("../../partials/header.ejs") %>
+<body>
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h2>Editar usuario</h2>
+        </div>
+        <div class="card-body">
+         <form action="/admin/user/edit/save" method="POST">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Informe seu e-mail" value="<%=user.email%>"><br>
+            <input type="text" hidden name="id" value="<%=user.id%>">
+            <input type="password" name="password" id="password" placeholder="*******" class="form-control"><br>
+            <button type="submit" class="btn btn-primary form-control">Editar</button>
+         </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<%-include("../../partials/footer.ejs") %>

@@ -1,0 +1,24 @@
+<%-include("../../partials/header.ejs") %>
+<body>
+  <%-include("../../partials/adminNavbar.ejs") %>
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h2>Editar Categoria</h2>
+        </div>
+        <div class="card-body">
+          <form action="/admin/category/edit/save" method="POST">
+            <label>Titulo da categoria:</label>
+            <input class="form-control" name="title" type="text" placeholder="Informe o titulo do artigo" required value="<%= category.title %>">
+            <input type="text" name="id" value="<%= category.id%>" hidden>
+            <br>
+            <button class="btn btn-primary form-control" type="submit">Editar</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </main>
+</body>
+<%-include("../../partials/footer.ejs") %>

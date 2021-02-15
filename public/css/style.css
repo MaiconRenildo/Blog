@@ -1,0 +1,124 @@
+/*Configurações da partial Navbar.ejs*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box
+}
+img{
+  max-width: 100%; /*Impede que uma imagem tenha uma largura maior que a largura da div*/
+}
+#Titulo-artigo{
+  background-color: #121416;
+  color: rgb(248, 247, 247);
+}
+body{
+  height: calc(100vh - 83px - 2vh); /*Descobrir quanto vale o br, ou melhor: não usar o br*/
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+main{
+  min-height: calc(100vh - 83px - 2vh - 50px);
+}
+header{
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  height: 56px;
+}
+#Menu-Topo{
+  background-color: #121416;
+  width: 100vw;
+}
+/*HAMBURGER*/
+.hamburguer{ 
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  display: block;
+  margin-right: 16px;
+  padding: 0;
+  position: relative;
+}
+#Menu-sanduiche{
+  padding: 0;
+  margin: 0;
+}
+#icone-hamburguer{
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 30px;
+  height: 4px;
+  position: absolute;
+  top: 18px;
+  left: 5px;
+  transition: 1s;
+  background-color:  rgb(248, 247, 247);
+}
+#icone-hamburguer::before,
+#icone-hamburguer::after{
+  background-color: rgb(248, 247, 247);
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  transition: 1s;
+}
+#icone-hamburguer::before{
+  top: -10px;
+}
+#icone-hamburguer::after{
+  bottom: -10px;
+}
+#check:checked ~ label #icone-hamburguer{
+  transform: rotate(45deg); /*Quando ele gira, after e before tambem giram*/
+}
+#check:checked ~ label #icone-hamburguer::before,
+#check:checked ~ label #icone-hamburguer::after{
+  transform: rotate(90deg);
+  top: 0px; /*Zero em relação ao icone*/
+}
+#Menu-Lateral{
+  background-color: #121416;
+  width: 360px;
+  height: calc(100vh - 56px);
+  position: relative;
+  font-size: 20px;
+  font-family: inherit;
+  /*Só funciona se for usado o transform*/
+  transition: all 1s;
+  left: -360px;
+  overflow: auto;
+}
+#Menu-Lateral ul{
+  list-style: none;
+  padding: 0;
+}
+#Menu-Lateral ul a{
+  display: block;
+  width: 100%;
+  padding: 20px 0px 20px 2rem;
+  color: rgb(248, 247, 247);
+  text-decoration: none;
+}
+/*HOVER e ACTIVE  (Nesta sequência necessariamente)*/
+#Menu-Lateral ul a:hover,
+#Menu-Lateral ul a:active{
+    background-color: rgb(248, 247, 247);
+    color: #121416;
+}
+/*Configuração do container*/
+.container{
+  margin-top: calc(73px + 2vh);
+} 
+footer{
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  bottom: 0;
+  font-size: 20px;
+  background-color: #121416;
+}

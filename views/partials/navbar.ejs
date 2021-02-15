@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar" id="Menu-Topo">
+    <a href="/" class="navbar-brand">FutebolRaíz</a> 
+    <div class="navbar-nav ml-auto">
+      <input type="checkbox" name="checkbox" id="check" style="display: none;">
+      <label for="check" id="Menu-sanduiche">
+        <div class="hamburguer">
+          <span id="icone-hamburguer"></span>
+        </div>
+      </label>
+    </div>
+  </nav>
+  <div id="Menu-Lateral" class="elemento">
+    <ul>
+      <% categories.forEach(category=>{ %>
+        <li><a href="/category/<%=category.slug%>/1"><%=category.title %></a></li>
+      <% }) %>
+    </ul>
+  </div>     
+</header>
+
+  <script>
+  var check=document.getElementById("check")
+  var menuLateral=document.getElementById("Menu-Lateral")
+  check.onclick=function(){
+    if(check.checked){
+      menuLateral.style="left:0px"
+    }else{
+      menuLateral.style="left:-360px"
+    }
+  }
+</script>
+
