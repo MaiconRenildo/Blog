@@ -1,2 +1,2 @@
 # Blog
-Modelo de blog completo desenvolvido com Nodejs. 
+Modelo de blog completo desenvolvido com Node.js 
